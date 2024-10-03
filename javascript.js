@@ -1,15 +1,10 @@
 'use strict';
 
-// Grid dimensions
-const GRID_HEIGHT = 16;
-const GRID_WIDTH = 16;
-
 /**
  * Creates a grid of cells inside the container element.
- * @param {number} height - Number of rows in the grid.
- * @param {number} width - Number of columns in the grid.
+ * @param {number} gridSize - Number of columns and rows in the grid.
  */
-let createGrid = (height, width) => {
+let createGrid = (gridSize) => {
     const container = document.querySelector(".container");
     if (!container) {
         console.error('Container element not found.');
@@ -19,11 +14,11 @@ let createGrid = (height, width) => {
     container.innerHTML = '';
 
     // Create rows and cells
-    for (let i = 0; i < height; i++) {
+    for (let i = 0; i < gridSize; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
 
-        for (let j = 0; j < width; j++) {
+        for (let j = 0; j < gridSize; j++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
             row.appendChild(cell);
@@ -62,7 +57,8 @@ let addAllListeners = () => {
  * Initializes the grid and event listeners.
  */
 let main = () => {
-    createGrid(GRID_HEIGHT, GRID_WIDTH);
+    let gridSize = 16;
+    createGrid(gridSize);
     addAllListeners();
 }
 
