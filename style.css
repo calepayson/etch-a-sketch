@@ -6,7 +6,7 @@
   --knob-color: ivory;
 
   /* Sizing */
-  --gap-size: 1px;
+  --gap-size: 0px;
   --container-height: 480px;
   --container-width: 640px;
   --container-border-size: 64px;
