@@ -49,6 +49,10 @@ let addCellHoverListener = () => {
     });
 }
 
+/**
+ * Prompts the user for a new grid size, handles the inputted value and either 
+ * alerts with an error or sets the grid to the desired size.
+ */
 let getNewSize = () => {
     let newSize = prompt("Please enter a new size", "16");
     let parsedSize = parseInt(newSize);
