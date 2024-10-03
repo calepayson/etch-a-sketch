@@ -13,6 +13,11 @@
   --container-border-radius: 24px;
   --knob-size: 30px;
   --knob-height: -90px;
+  --button-height: 64px;
+  --button-width: 150px;
+
+  /* Text */
+  --font-family: Arial, sans-serif;
 }
 
 /* Global Styles */
@@ -32,7 +37,7 @@ h1 {
   text-align: center;
   margin-bottom: -50px;
   color: var(--knob-color);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
 }
 
 /* Container Styles */
@@ -87,3 +92,23 @@ h1 {
   border-radius: 50%;
 }
 
+/* Settings Styles */
+.settings-container {
+  margin-top: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  color: var(--knob-color);
+  background-color: red;
+  min-height: var(--button-height);
+  min-width: var(--button-width);
+  border: none;
+  border-radius: 24px;
+  font-family: var(--font-family);
+  font-size: 18px;
+  font-weight: bold;
+}
