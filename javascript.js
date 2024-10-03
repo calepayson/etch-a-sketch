@@ -36,7 +36,7 @@ let createGrid = (height, width) => {
 /**
  * Adds event listeners to each cell that change the color upon mouse-over.
  */
-let addCellColorListener = () => {
+let addCellHoverListener = () => {
     const container = document.querySelector('.container');
     if (!container) {
         console.error('Container element not found.');
@@ -51,14 +51,20 @@ let addCellColorListener = () => {
     });
 }
 
+/**
+ * Initialize all event listeners and add them to their respective elements.
+ */
 let addAllListeners = () => {
-    addCellColorListener();
+    addCellHoverListener();
 }
 
-
+/**
+ * Initializes the grid and event listeners.
+ */
 let main = () => {
     createGrid(GRID_HEIGHT, GRID_WIDTH);
     addAllListeners();
 }
 
+// Run the app.
 main();
