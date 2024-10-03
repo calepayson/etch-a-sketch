@@ -1,5 +1,8 @@
-const height = 16;
-const width = 16;
+'use strict';
+
+// Grid dimensions
+const GRID_HEIGHT = 16;
+const GRID_WIDTH = 16;
 
 let createGrid = (height, width) => {
     const container = document.querySelector(".container");
@@ -17,4 +20,23 @@ let createGrid = (height, width) => {
     }
 }
 
-createGrid(height, width);
+let addCellColorListener = () => {
+    const cells = document.querySelectorAll('.cell');
+
+    cells.forEach((cell) => {
+        cell.addEventListener('mouseenter', (e) => {
+            e.target.style.backgroundColor = 'darkslategray';
+        });
+    });
+}
+
+let addAllListeners = () => {
+    addCellColorListener();
+}
+
+let main = () => {
+    createGrid(height, width);
+    addAllListeners();
+}
+
+main();
