@@ -1,24 +1,89 @@
+:root {
+  /* Colors */
+  --background-color: #161b22;
+  --inactive-cell-color: aliceblue;
+  --active-cell-color: darkslategray;
+  --knob-color: ivory;
+
+  /* Sizing */
+  --gap-size: 1px;
+  --container-height: 480px;
+  --container-width: 640px;
+  --container-border-size: 64px;
+  --container-border-radius: 24px;
+  --knob-size: 30px;
+  --knob-height: -90px;
+}
+
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+/* Typography */
+h1 {
+  text-align: center;
+  margin-bottom: -50px;
+  color: var(--knob-color);
+  font-family: Arial, sans-serif;
+}
+
+/* Container Styles */
+.etch-a-sketch {
+  position: relative;
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1px;
+  gap: var(--gap-size);
+  height: var(--container-height);
+  width: 100%;
+  border: var(--container-border-size) solid red;
+  border-radius: var(--container-border-radius);
+  overflow: hidden;
 }
 
 .row {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1px;
+  flex-grow: 1;
+  gap: var(--gap-size);
 }
 
 .cell {
-  background-color: red;
-  width: 16px;
-  height: 16px;
+  flex-grow: 1;
+  flex-basis: 0;
+  background-color: var(--inactive-cell-color);
 }
 
-.active {
-  background-color: darkslategray;
+.cell.active {
+  background-color: var(--active-cell);
 }
+
+/* Knob Styles */
+.knobs {
+  position: absolute;
+  bottom: calc(0.5 * var(--knob-size));
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.knob {
+  height: var(--knob-size);
+  width: var(--knob-size);
+  background-color: var(--knob-color);
+  border-radius: 50%;
+}
+
