@@ -1,5 +1,8 @@
 'use strict';
 
+const MAX_GRID_SIZE = 100;
+const STARTING_GRID_SIZE = 16;
+
 /**
  * Creates a grid of cells inside the container element.
  * @param {number} gridSize - Number of columns and rows in the grid.
@@ -46,6 +49,19 @@ let addCellHoverListener = () => {
     });
 }
 
+let getNewSize = () => {
+    let newSize = prompt("Please enter a new size", "16");
+    let parsedSize = parseInt(newSize);
+
+    if (Number.isNaN(parsedSize)) {
+        alert(`ERROR: ${newSize} is not a positive integer`);
+    } else if (parsedSize > MAX_GRID_SIZE) {
+        alert(`ERROR: ${parsedSize} is greater than ${MAX_GRID_SIZE}.`);
+    } else {
+        createGrid(parsedSize);
+    }
+}
+
 /**
  * Initialize all event listeners and add them to their respective elements.
  */
@@ -57,8 +73,7 @@ let addAllListeners = () => {
  * Initializes the grid and event listeners.
  */
 let main = () => {
-    let gridSize = 16;
-    createGrid(gridSize);
+    createGrid(STARTING_GRID_SIZE);
     addAllListeners();
 }
 
