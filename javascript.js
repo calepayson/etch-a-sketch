@@ -28,17 +28,26 @@ let createGrid = (height, width) => {
             cell.classList.add('cell');
             row.appendChild(cell);
         }
+
         container.appendChild(row);
     }
-}
+};
 
+/**
+ * Adds event listeners to each cell that change the color upon mouse-over.
+ */
 let addCellColorListener = () => {
-    const cells = document.querySelectorAll('.cell');
+    const container = document.querySelector('.container');
+    if (!container) {
+        console.error('Container element not found.');
+        return;
+    }
 
-    cells.forEach((cell) => {
-        cell.addEventListener('mouseenter', (e) => {
-            e.target.style.backgroundColor = 'darkslategray';
-        });
+    // Use event delegation for better performance.
+    container.addEventListener('mouseover', (event) => {
+        if (event.target.classList.contains('cell')) {
+            event.target.classList.add('active');
+        }
     });
 }
 
@@ -48,7 +57,7 @@ let addAllListeners = () => {
 
 
 let main = () => {
-    createGrid(height, width);
+    createGrid(GRID_HEIGHT, GRID_WIDTH);
     addAllListeners();
 }
 
